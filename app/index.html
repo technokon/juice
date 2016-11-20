@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="juiceApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Juices</title>
+
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+</head>
+<body ng-controller="juiceController as vm">
+
+<h1>{{vm.title}}</h1>
+
+<table class="table tab-content">
+
+    <tr>
+        <th>Make</th>
+        <th>Title</th>
+        <th>Cost</th>
+    </tr>
+
+    <tr ng-repeat="juice in vm.juices track by $index">
+        <td>
+            <span>{{juice.make}}</span>
+        </td>
+        <td>
+            <span>{{juice.title}}</span>
+        </td>
+        <td>
+            <span>{{juice.cost | currency: 'USD$'}}</span>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>
